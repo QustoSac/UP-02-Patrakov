@@ -1,0 +1,56 @@
+﻿<Page x:Class="UP_02_Patrakov.Pages.DiscountPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UP_02_Patrakov.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DiscountPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <ListView Name="ListUser" Grid.Row="1" BorderBrush="Black" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" MouseDoubleClick="ListUser_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center" TextAlignment="Left" Grid.Column="0" Text="{Binding Partners.PartnerType.typeName}" Style="{StaticResource customTextBlock}" FontWeight="Bold" Margin="0,0,133,0"/>
+                            <TextBlock VerticalAlignment="Center" TextAlignment="Left" Width="180" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource customTextBlock}" Text="{Binding Partners.partnerName}" Margin="48,0,0,0"/>
+                            <TextBlock VerticalAlignment="Center" TextAlignment="Left" Width="10" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource customTextBlock}" Text="|" Margin="38,0,0,0"/>
+                            <TextBlock VerticalAlignment="Center" TextAlignment="Left" Width="370" Grid.Row="2" HorizontalAlignment="Left" Style="{StaticResource customTextBlock}" Text="{Binding Partners.Director}"/>
+                            <TextBlock VerticalAlignment="Center" TextAlignment="Left" Width="200" Grid.Row="3" HorizontalAlignment="Left" Style="{StaticResource customTextBlock}" Text="{Binding Partners.partnerPhone}"/>
+                            <TextBlock VerticalAlignment="Center" TextAlignment="Left" Width="200" Grid.Row="4" HorizontalAlignment="Left" Style="{StaticResource customTextBlock}" Text="{Binding Partners.partnerRating}"/>
+
+                            <TextBlock VerticalAlignment="Top" TextAlignment="Right" Width="200" Style="{StaticResource customTextBlock}" Text="{Binding Discount, StringFormat={}{0}%}" Margin="50,0,50,0" Grid.Column="4" HorizontalAlignment="Right" Grid.RowSpan="2"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button x:Name="AddPartner" Content="Добавить партнера" Width="150" Height="25" Style="{StaticResource customButton}" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Click="AddPartner_Click"/>
+        <Button x:Name="Sales"  Content="Продажи" Width="150" Height="25" Style="{StaticResource customButton}" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Sales_Click"/>
+
+    </Grid>
+</Page>
